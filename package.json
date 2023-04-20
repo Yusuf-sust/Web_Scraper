@@ -1,0 +1,12 @@
+{
+  "name": "web-scrapper-cherio",
+  "version": "1.0.0",
+  "description": "This is a web scrapper using cherio",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Md Yusuf Ali",
+  "license": "ISC"
+}
