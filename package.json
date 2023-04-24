@@ -2,11 +2,17 @@
   "name": "web-scrapper-cherio",
   "version": "1.0.0",
   "description": "This is a web scrapper using cherio",
+  "author": "Md Yusuf Ali",
+  "license": "ISC",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Md Yusuf Ali",
-  "license": "ISC"
+  "dependencies": {
+    "axios": "^1.3.6",
+    "cheerio": "^1.0.0-rc.12",
+    "pretty": "^2.0.0",
+    "puppeteer": "^19.10.1"
+  }
 }
