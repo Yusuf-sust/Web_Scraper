@@ -8,4 +8,4 @@ Procedure
 3. go to project directory
 4. run the command "npm i"
 5. start scrapping run the command "npm start"
-6. scrapping data save in trackItems.json file
+6. scrapping data saved in trackItems.json file
