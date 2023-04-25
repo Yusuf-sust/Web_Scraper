@@ -1,4 +1,4 @@
-# Web_Scrapper for scraping Otomoto.pl web using node, cherio & Puppeteer
+# Web_Scrapper for scraping Otomoto.pl web
 
 Used nodejs, cheerio, puppeteer
 
