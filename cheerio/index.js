@@ -1,4 +1,5 @@
 const cheerio = require("cheerio");
+const { formateNumber } = require("./utilitis");
 
 // Get netx page url if exist
 async function getNextPageUrl(initialUrl, currentUrl, html) {
@@ -20,7 +21,8 @@ async function getNextPageUrl(initialUrl, currentUrl, html) {
         }
         return null;
     } catch (err) {
-        throw err;
+        console.log(err);
+        return null;
     }
 }
 
@@ -40,7 +42,8 @@ async function getItems(html) {
         })
         return items;
     } catch (err) {
-        throw err;
+        console.log(err);
+        return [];
     }
 }
 
@@ -51,7 +54,8 @@ async function getTotalAdsCount(html) {
         const totalAdsCountsTextsArray = $('h1').text().split(' ');
         return totalAdsCountsTextsArray[2];
     } catch (err) {
-        throw err;
+        console.log(err);
+        return 0;
     }
 }
 
@@ -66,6 +70,7 @@ async function scrapeTruckItem(html) {
         $('.offer-title').each((row, rawElement) => {
             title = $(rawElement).text().trim();
         });
+        
         $('.offer-price__number').each((row, rawElement) => {
             price = $(rawElement).text().trim().split(' ').join('');
         });
@@ -75,17 +80,18 @@ async function scrapeTruckItem(html) {
             const value = $(rawElement).find('.offer-params__value').text().trim();
             description[id] = value;
         })
-        
+
         return {
-            'tytuł': title,
-            'cena': price,
+            'Tytuł': title,
+            'Cena': formateNumber(price),
             'Data pierwszej rejestracji w historii pojazdu': description['Data pierwszej rejestracji w historii pojazdu'],
             'Rok produkcji': description['Rok produkcji'],
-            'Przebieg': description['Przebieg'],
+            'Przebieg': formateNumber(description['Przebieg']),
             'Moc': description['Moc']
         };
     } catch (err) {
-        throw err;
+        console.log(err);
+        return null;
     }
 }
 
